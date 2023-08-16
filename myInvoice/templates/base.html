@@ -1,0 +1,65 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="header">
+            <div class="main-header">
+                <div class="header-content">
+                    <div class="left-block">
+                        <div class="head-block">
+                            <h2>Logo</h3>
+                        </div>
+                        <div class="head-block">
+                            <ul>
+                                <li><a href="/">Home</a></li>
+                                <li><a href="">About</a></li>
+                                <li><a href="">Invoice</a></li>
+                                <li><a href="">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="right-block">
+                        <div class="title-data">
+                            <p>{{request.user.first_name}} {{request.user.last_name}}</p>
+                        </div>
+                        <div class="auth-data">
+                            {% if request.user.is_authenticated %}
+                            <div class="head-block">
+                                <a href="{% url 'logout' %}" class="header-btn">Logout</a>
+                            </div>
+                            {% else %}
+                            <div class="head-block">
+                                <a href="{% url 'login' %}" class="header-btn">Login</a>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    {% block body %}
+    <!-- iudshfiusdhvi -->
+    {% endblock body %}
+
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+
+</body>
+
+</html>

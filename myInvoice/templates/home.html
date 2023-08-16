@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block body %}
+
+<div class="home">
+    <div class="home-content">
+        <div class="home-data">
+            <div class="home-cards">
+                <img src="" alt="">
+                <h1>Add Invoice</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum libero autem quod expedita maiores quos.</p>
+                <a href="{% url 'client' %}" class="card-btn">Button</a>
+            </div>
+            <div class="home-cards">
+                <img src="" alt="">
+                <h1>Add Service Provider</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum libero autem quod expedita maiores quos.</p>
+                <a href="{% url 'addService' %}" class="card-btn">Button</a>
+            </div>
+            <div class="home-cards">
+                <img src="" alt="">
+                <h1></h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum libero autem quod expedita maiores quos.</p>
+                <button class="card-btn">Button</button>
+            </div>
+            <div class="home-cards">
+                <img src="" alt="">
+                <h1>Heading</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum libero autem quod expedita maiores quos.</p>
+                <button class="card-btn">Button</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}
