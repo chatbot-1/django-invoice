@@ -27,8 +27,10 @@ urlpatterns = [
     path('login/', log_in, name='login'),
     path('signup/', sign_up, name='signup'),
     path('logout/', log_out, name='logout'),
-    path('add_service/', add_service, name='addService'),
+    path('add_service/', provider, name='addService'),
     path('add_client/', client, name='client'),
     path('service/', service, name='service'),
+    path('delete_service/<id>/', delete_provider, name='delService'),
+    path('update_service/<id>/', update_provider, name='upService'),
     # path('ajax/load-client/', load_client, name='loadClient'),
 ]

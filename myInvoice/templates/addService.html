@@ -6,13 +6,74 @@
         <div class="ser-data">
             <form action="" method="post">
                 {% csrf_token %}
+                <p>Client: </p>
 
-                {{ form.as_p }}
-
+                <select name="client" id="">
+                    {% for i in clients %}
+                    <option value="{{i.id}}">{{i.comp_name}}</option>
+                    {% endfor %}
+                </select>
+                <div class="provider-box">
+                    <label for="">Company name</label>
+                    <input name="company" type="text">
+                </div>
+                <div class="provider-box">
+                    <label for="">Handle By</label>
+                    <input name="handle" type="text">
+                </div>
+                <div class="provider-box">
+                    <label for="">Email</label>
+                    <input name="email" type="email">
+                </div>
+                <div class="provider-box">
+                    <label for="">Phone</label>
+                    <input name="number" type="number">
+                </div>
+                <div class="provider-box">
+                    <label for="">Address</label>
+                    <input name="address" type="text">
+                </div>
+                <div class="provider-box">
+                    <label for="">Account</label>
+                    <input name="account" type="number">
+                </div>
+                <div class="provider-box">
+                    <label for="">IFSC</label>
+                    <input name="ifsc" type="text">
+                </div>
                 <input type="submit" value="Submit">
+
+                <!-- {{ form.as_p }} -->
+
+                <!-- <input type="submit" value="Submit"> -->
             </form>
         </div>
-        {{serviceObj}}
+        <div class="provider">
+            <h1>Add Service Provider</h1>
+            <div class="provider-data">
+                <table border="2px">
+                    <tr>
+                        <th>Company Name</th>
+                        <th>Handle By</th>
+                        <th>Phone No.</th>
+                        <th>Client</th>
+                        <th>Action</th>
+                    </tr>
+                    {% for i in providerObj %}
+                    <tr>
+                        <td>{{i.comp_name}}</td>
+                        <td>{{i.handle}}</td>
+                        <td>{{i.phone}}</td>
+                        <td>{{i.client}}</td>
+                        <td>
+                            <a href="/delete_service/{{i.id}}">Delete</a>
+                            <a href="/update_service/{{i.id}}">Update</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
     </div>
 </div>
 

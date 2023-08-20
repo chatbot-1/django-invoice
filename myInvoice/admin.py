@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Client, Service, Add_service
+from .models import *
 
 # Register your models here.
 admin.site.register(Client)
 admin.site.register(Service)
-admin.site.register(Add_service)
+admin.site.register(Provider)
 

@@ -150,3 +150,6 @@ form .not{
     border: 1px solid grey;
     padding: 30px 20px;
 }
+.client-matter{
+    display: flex;
+}
