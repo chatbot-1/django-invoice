@@ -32,5 +32,10 @@ urlpatterns = [
     path('service/', service, name='service'),
     path('delete_service/<id>/', delete_provider, name='delService'),
     path('update_service/<id>/', update_provider, name='upService'),
-    # path('ajax/load-client/', load_client, name='loadClient'),
+    path('view-client/', viewClient, name='viewClient'),
+    path('delete_client/<id>/', delete_client, name='delClient'),
+    path('update_client/<id>/', update_client, name='upClient'),
+    path('show_client/<id>/', show_client, name='showClient'),
+    path('update_service/<id>/', update_service, name='update_service'),
+    path('delete_service/<id>/', delete_service, name='delete_service'),
 ]

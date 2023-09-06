@@ -1,32 +1,42 @@
 {% extends "base.html" %}
 {% block body %}
+{% load static %}
 
 <div class="home">
+
     <div class="home-content">
         <div class="home-data">
             <div class="home-cards">
-                <img src="" alt="">
-                <h1>Add Invoice</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum libero autem quod expedita maiores quos.</p>
-                <a href="{% url 'client' %}" class="card-btn">Button</a>
+                <img src="{% static 'img/invoice.png' %}" alt="">
+                <h2>Add Invoice</h1>
+
+                <div class="home-btn">
+                    <a href="{% url 'client' %}" class="card-btn">Button</a>
+                </div>
             </div>
             <div class="home-cards">
-                <img src="" alt="">
-                <h1>Add Service Provider</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum libero autem quod expedita maiores quos.</p>
-                <a href="{% url 'addService' %}" class="card-btn">Button</a>
+                <img src="{% static 'img/agreement.png' %}" alt="">
+                <h2>Add Service Provider</h2>
+
+                <div class="home-btn">
+                    <a href="{% url 'addService' %}" class="card-btn">Button</a>
+                </div>
             </div>
             <div class="home-cards">
-                <img src="" alt="">
-                <h1></h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum libero autem quod expedita maiores quos.</p>
-                <button class="card-btn">Button</button>
+                <img src="{% static 'img/contract.png' %}" alt="">
+                <h2>View Records</h2>
+
+                <div class="home-btn">
+                    <a href="{% url 'viewClient' %}" class="card-btn">Button</a>
+                </div>
             </div>
             <div class="home-cards">
-                <img src="" alt="">
-                <h1>Heading</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum libero autem quod expedita maiores quos.</p>
-                <button class="card-btn">Button</button>
+                <img src="{% static 'img/envelope.png' %}" alt="">
+                <h2>Download Invoice</h2>
+
+                <div class="home-btn">
+                    <a href="{% url 'client' %}" class="card-btn">Button</a>
+                </div>
             </div>
         </div>
     </div>

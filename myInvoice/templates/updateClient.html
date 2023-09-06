@@ -13,23 +13,23 @@
                     <div class="client-input">
                         <div class="client-div">
                             <label for="">Company Name: </label>
-                            <input name="comp_name" required type="text">
+                            <input name="comp_name" required type="text" value="{{upDate.comp_name}}">
                         </div>
                         <div class="client-div">
                             <label for="">GST Number: </label>
-                            <input name="gst" required type="number">
+                            <input name="gst" required type="number" value="{{upDate.gst}}">
                         </div>
                         <div class="client-div">
                             <label for="">Country: </label>
-                            <input name="country" required type="text">
+                            <input name="country" required type="text" value="{{upDate.country}}">
                         </div>
                         <div class="client-div">
                             <label for="">State:</label>
-                            <input name="state" required type="text">
+                            <input name="state" required type="text" value="{{upDate.state}}">
                         </div>
                         <div class="client-div">
                             <label for="">Address:</label>
-                            <input name="address" required type="text">
+                            <input name="address" required type="text" value="{{upDate.address}}">
                         </div>
                         <div class="client-btn">
                             <button class="service-btn" type="submit">Submit</button>
@@ -38,11 +38,11 @@
 
                     </div>
                 </div>
-                <div class="service-content">
+                <!-- <div class="service-content">
                     <a href="{% url 'service' %}" class="add-header">
                         <h1>Add Service Details</h1>
                     </a>
-                </div>
+                </div> -->
             </form>
         </div>
     </div>

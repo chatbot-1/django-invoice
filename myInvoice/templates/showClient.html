@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+{% block body %}
+
+<style>
+    .button{
+      position: relative;
+      left: 91%;
+      border-radius: 20px;
+      padding: 7px 14px;
+      font-size: 15px;
+    }
+  </style>
+  
+  <h4 class="alert my-2 alert-primary text-center">All Client Details</h4>
+  
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <h4 class="alert my-2 alert-primary">Client Details</h4>
+  
+        <table class="table-responsive">
+          <tbody>
+            <tr>
+              <th scope="col">ID</th>
+              <td>{{clientData.id}}</td>
+            </tr>
+            <tr>
+              <th scope="col">Company Name</th>
+              <td>{{clientData.comp_name}}</td>
+            </tr>
+            <tr>
+              <th scope="col">Gst Number</th>
+              <td>{{clientData.gst}}</td>
+            </tr>
+            <tr>
+              <th scope="col">Country</th>
+              <td>{{clientData.country}}</td>
+            </tr>
+            <tr>
+              <th scope="col">State</th>
+              <td>{{clientData.state}}</td>
+            </tr>
+            <tr>
+              <th scope="col">Address</th>
+              <td>{{clientData.address}}</td>
+            </tr>
+  
+        </table>
+      </div>
+      <div class="col">
+        <h4 class="alert my-2 alert-primary">Service Provider Details</h4>
+  
+        {% if providerData.key %}
+        <h6 class="text-center alert alert-info">No service provider yet, please insert services first</h6>
+  
+        {% else %}
+  
+        <table class="table-responsive">
+          <tbody>
+            <tr>
+              <th scope="col">ID</th>
+              <td>{{providerData.id}}</td>
+            </tr>
+            <tr>
+              <th scope="col">Company Name</th>
+              <td>{{providerData.comp_name}}</td>
+            </tr>
+            <tr>
+              <th scope="col">Handle By</th>
+              <td>{{providerData.handle}}</td>
+            </tr>
+            <tr>
+              <th scope="col">Bank Name</th>
+              <td>{{providerData.client}}</td>
+            </tr>
+            <tr>
+              <th scope="col">Account No.</th>
+              <td>{{providerData.account}}</td>
+            </tr>
+            <tr>
+              <th scope="col">IFSC Code</th>
+              <td>{{providerData.ifsc}}</td>
+            </tr>
+  
+        </table>
+        {% endif %}
+      </div>
+  
+    </div>
+  </div>
+  
+  
+  
+  <div class="container mt-4">
+    <h4 class="alert my-2 alert-primary text-center">All Services Details</h4>
+  
+    {% if servicesData.key %}
+  
+    <h6 class="text-center alert alert-info">No service provider yet, please insert services first</h6>
+  
+    {% else %}
+  
+  
+    <div class="table-responsive">
+  
+      <table class="table table-hover">
+        <thead>
+  
+          <tr>
+            <th scope="col">Description</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Amount </th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for obj in serviceData reversed %}
+          <tr>
+            <td>{{obj.description}}</td>
+            <td>{{obj.quantity}}</td>
+            <td>{{obj.amount}}</td>
+  
+            <td>
+              <div class="row">
+                <div class="col-6">
+                  <a href="{% url 'update_service' obj.id %}">
+                    <h4 class="btn btn-warning  btn-sm">Edit</h4>
+                  </a>
+                </div>
+                <a href="/delete_service/{{obj.id}}" class="delete-btn" onclick="return confirm ('Are you sure you want to delete this item?') "">Delete</a>
+                <div class="col-6">
+                  <form action="/delete_service/{{obj.id}}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger btn-sm"
+                      onclick=" return confirm ('Are you sure you want to delete this item?') ">Delete</button>
+                  </form>
+                </div>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  {% endif %}
+  </div>
+  
+  
+
+{% endblock body %}

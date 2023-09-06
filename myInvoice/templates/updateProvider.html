@@ -2,46 +2,51 @@
 {% block body %}
 
 <div class="add-service">
-    <div class="ser-content">
+    <div class="ser-content2">
         <div class="ser-data">
             <form action="" method="post">
                 {% csrf_token %}
-                <p>Client: </p>
-
-                <select name="client" id="">
-                    {% for i in clients %}
-                    <option value="{{i.id}}">{{i.comp_name}}</option>
-                    {% endfor %}
-                </select>
-                <div class="provider-box">
-                    <label for="">Company name</label>
-                    <input name="company" type="text" value="{{prov.comp_name}}">
+                <div class="provider-model">
+                    <div class="provider-box">
+                        <label for="">Client</label>
+                        <select name="client" id="">
+                            {% for i in clients %}
+                            <option value="{{i.id}}">{{i.comp_name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <div class="provider-box">
+                        <label for="">Company name</label>
+                        <input name="company" type="text" value="{{prov.comp_name}}">
+                    </div>
+                    <div class="provider-box">
+                        <label for="">Handle By</label>
+                        <input name="handle" type="text" value="{{prov.handle}}">
+                    </div>
+                    <div class="provider-box">
+                        <label for="">Email</label>
+                        <input name="email" type="email" value="{{prov.email}}">
+                    </div>
+                    <div class="provider-box">
+                        <label for="">Phone</label>
+                        <input name="number" type="number" value="{{prov.phone}}">
+                    </div>
+                    <div class="provider-box">
+                        <label for="">Address</label>
+                        <input name="address" type="text" value="{{prov.address}}">
+                    </div>
+                    <div class="provider-box">
+                        <label for="">Account</label>
+                        <input name="account" type="number" value="{{prov.account}}">
+                    </div>
+                    <div class="provider-box">
+                        <label for="">IFSC</label>
+                        <input name="ifsc" type="text" value="{{prov.ifsc}}">
+                    </div>
+                    <input type="submit" value="Submit" class="up-btn">
                 </div>
-                <div class="provider-box">
-                    <label for="">Handle By</label>
-                    <input name="handle" type="text" value="{{prov.handle}}">
-                </div>
-                <div class="provider-box">
-                    <label for="">Email</label>
-                    <input name="email" type="email" value="{{prov.email}}">
-                </div>
-                <div class="provider-box">
-                    <label for="">Phone</label>
-                    <input name="number" type="number" value="{{prov.phone}}">
-                </div>
-                <div class="provider-box">
-                    <label for="">Address</label>
-                    <input name="address" type="text" value="{{prov.address}}">
-                </div>
-                <div class="provider-box">
-                    <label for="">Account</label>
-                    <input name="account" type="number" value="{{prov.account}}">
-                </div>
-                <div class="provider-box">
-                    <label for="">IFSC</label>
-                    <input name="ifsc" type="text" value="{{prov.ifsc}}">
-                </div>
-                <input type="submit" value="Submit">
+                
             </form>
         </div>
     </div>

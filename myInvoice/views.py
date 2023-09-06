@@ -73,7 +73,7 @@ def sign_up(request):
 def delete_provider(request, id):
     queryset = Provider.objects.get(id=id)
     queryset.delete()
-    return redirect('addService')
+    return redirect('addService') 
 
 def update_provider(request, id):
     queryset = Provider.objects.get(id = id)
@@ -168,3 +168,64 @@ def client(request):
         return redirect('client')
 
     return render(request, 'client.html')
+
+def viewClient(request):
+    queryset = Client.objects.all()
+
+    return render(request, 'viewClient.html', {'viewClient': queryset})
+
+def delete_service(request, id):
+    queryset = Service.objects.get(id = id)
+    queryset.delete()
+    return redirect('showClient')
+
+def update_service(request, id):
+    queryset = Service.objects.get(id = id)
+    return redirect('showClient')
+
+def delete_client(request, id):
+    queryset = Client.objects.get(id=id)
+    queryset.delete()
+    return redirect('viewClient')
+
+def update_client(request, id):
+    queryset = Client.objects.get(id = id)
+
+    if request.method == 'POST':
+        comp_name = request.POST.get('comp_name')
+        gst = request.POST.get('gst')
+        country = request.POST.get('country')
+        state = request.POST.get('state')
+        address = request.POST.get('address')
+
+        queryset.comp_name = comp_name
+        queryset.gst = gst
+        queryset.country = country
+        queryset.state = state
+        queryset.address = address
+
+        queryset.save()
+        return redirect('viewClient')
+    
+    context = {'upDate': queryset}
+
+    return render(request, 'updateClient.html', context)
+
+
+
+def show_client(request, id):
+    clientData = Client.objects.get(id = id)
+
+    try:
+        providerData = Provider.objects.get(client_id = id)
+    except Provider.DoesNotExist:
+        providerData = {'key': 'val'}
+
+    try:
+        serviceData = Service.objects.filter(client_id = id)
+    except Service.DoesNotExist:
+        serviceData = {'key': 'val'}
+
+    context = {'clientData': clientData, 'serviceData': serviceData, 'providerData': providerData}
+
+    return render(request, 'showClient.html', context)

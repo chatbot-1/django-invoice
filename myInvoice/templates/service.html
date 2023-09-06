@@ -1,34 +1,46 @@
 {% extends "base.html" %}
 {% block body %}
 
-<div class="add-service">
-    <div class="ser-content">
+<div class="service">
+    <div class="ser-content1">
         <div class="ser-data">
-            <form action="" method="post">
+            <form action="" method="post" class="forms-matter">
                 {% csrf_token %}
-
-                <select name="client" id="">
-                    {% for i in clients %}
-                    <option value="{{i.id}}">{{i.comp_name}}</option>
-                    {% endfor %}
-                </select>
-                <div class="provider-box">
-                    <label for="">Description</label>
-                    <input name="description" type="text">
+                <div class="service-content">
+                    <a href="{% url 'client' %}" class="add-header">
+                        <h1>Add Client Details</h1>
+                    </a>
                 </div>
-                <div class="provider-box">
-                    <label for="">Quantity</label>
-                    <input name="quantity" type="number">
+                <div class="service-content">
+                    <a href="{% url 'service' %}" class="add-header">
+                        <h1>Add Service Details</h1>
+                    </a>
+                    <div class="service-input">
+                        <div class="provider-box">
+                            <label for="">Client</label>
+                            <div class="select-box">
+                                <select name="client" id="select">
+                                    {% for i in clients %}
+                                    <option value="{{i.id}}" class="option">{{i.comp_name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="provider-box">
+                            <label for="">Description</label>
+                            <input required name="description" type="text">
+                        </div>
+                        <div class="provider-box">
+                            <label for="">Quantity</label>
+                            <input required name="quantity" type="number">
+                        </div>
+                        <div class="provider-box">
+                            <label for="">Amount</label>
+                            <input required name="amount" type="number">
+                        </div>
+                        <input type="submit" value="Submit" class="service-btn">
+                    </div>
                 </div>
-                <div class="provider-box">
-                    <label for="">Amount</label>
-                    <input name="amount" type="number">
-                </div>
-                <input type="submit" value="Submit">
-
-                <!-- {{ form.as_p }} -->
-
-                <!-- <input type="submit" value="Submit"> -->
             </form>
         </div>
     </div>

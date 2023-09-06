@@ -6,52 +6,55 @@
         <div class="ser-data">
             <form action="" method="post">
                 {% csrf_token %}
-                <p>Client: </p>
-
-                <select name="client" id="">
-                    {% for i in clients %}
-                    <option value="{{i.id}}">{{i.comp_name}}</option>
-                    {% endfor %}
-                </select>
-                <div class="provider-box">
-                    <label for="">Company name</label>
-                    <input name="company" type="text">
+                <div class="provider-model">
+                    <h1>Add Service Provider</h1>
+                    <div class="provider-box">
+                        <label for="">Client</label>
+                        <select name="client" id="">
+                            {% for i in clients %}
+                            <option value="{{i.id}}">{{i.comp_name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="provider-box">
+                        <label for="">Company name</label>
+                        <input name="company" type="text">
+                    </div>
+                    <div class="provider-box">
+                        <label for="">Handle By</label>
+                        <input name="handle" type="text">
+                    </div>
+                    <div class="provider-box">
+                        <label for="">Email</label>
+                        <input name="email" type="email">
+                    </div>
+                    <div class="provider-box">
+                        <label for="">Phone</label>
+                        <input name="number" type="number">
+                    </div>
+                    <div class="provider-box">
+                        <label for="">Address</label>
+                        <input name="address" type="text">
+                    </div>
+                    <div class="provider-box">
+                        <label for="">Account</label>
+                        <input name="account" type="number">
+                    </div>
+                    <div class="provider-box">
+                        <label for="">IFSC</label>
+                        <input name="ifsc" type="text">
+                    </div>
+                    <div class="client-btn">
+                        <button type="submit" class="service-btn">Submit</button>
+                        <button type="reset" class="service-btn">Reset</button>
+                    </div>
                 </div>
-                <div class="provider-box">
-                    <label for="">Handle By</label>
-                    <input name="handle" type="text">
-                </div>
-                <div class="provider-box">
-                    <label for="">Email</label>
-                    <input name="email" type="email">
-                </div>
-                <div class="provider-box">
-                    <label for="">Phone</label>
-                    <input name="number" type="number">
-                </div>
-                <div class="provider-box">
-                    <label for="">Address</label>
-                    <input name="address" type="text">
-                </div>
-                <div class="provider-box">
-                    <label for="">Account</label>
-                    <input name="account" type="number">
-                </div>
-                <div class="provider-box">
-                    <label for="">IFSC</label>
-                    <input name="ifsc" type="text">
-                </div>
-                <input type="submit" value="Submit">
-
-                <!-- {{ form.as_p }} -->
-
-                <!-- <input type="submit" value="Submit"> -->
             </form>
         </div>
         <div class="provider">
-            <h1>Add Service Provider</h1>
+            <h1>Service Provider Quick Data</h1>
             <div class="provider-data">
-                <table border="2px">
+                <table border="1px">
                     <tr>
                         <th>Company Name</th>
                         <th>Handle By</th>
@@ -66,8 +69,11 @@
                         <td>{{i.phone}}</td>
                         <td>{{i.client}}</td>
                         <td>
-                            <a href="/delete_service/{{i.id}}">Delete</a>
-                            <a href="/update_service/{{i.id}}">Update</a>
+                            <div class="client-btn">
+                                <a href="/delete_service/{{i.id}}" class="delete-btn">Delete</a>
+                                <a href="/update_service/{{i.id}}" class="update-btn">Update</a>
+                            </div>
+
                         </td>
                     </tr>
                     {% endfor %}
